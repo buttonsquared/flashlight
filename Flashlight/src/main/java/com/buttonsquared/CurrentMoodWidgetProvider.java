@@ -29,7 +29,7 @@ public class CurrentMoodWidgetProvider extends AppWidgetProvider {
 		    RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widgetlayout);
 		    
 		    Intent intent = new Intent(context, CurrentMoodService.class);
-		    intent.setAction(CurrentMoodService.UPDATEMOOD);
+		    //intent.setAction(CurrentMoodService.UPDATEMOOD);
 		    intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 		    PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 		
