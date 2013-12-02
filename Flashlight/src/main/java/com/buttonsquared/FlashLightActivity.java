@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class FlashLightActivity extends Activity {
 
@@ -18,7 +19,7 @@ public class FlashLightActivity extends Activity {
 
     private Camera camera;
 
-    private Button button;
+    private ImageButton button;
 
     @Override
     protected void onStop() {
@@ -34,7 +35,7 @@ public class FlashLightActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        button = (Button) findViewById(R.id.buttonFlashlight);
+        button = (ImageButton) findViewById(R.id.widgetBtn);
 
         Context context = this;
         PackageManager pm = context.getPackageManager();
@@ -60,6 +61,9 @@ public class FlashLightActivity extends Activity {
                     p.setFlashMode(Parameters.FLASH_MODE_OFF);
                     camera.setParameters(p);
                     camera.stopPreview();
+
+                    button.setImageResource(R.drawable.panda_off);
+
                     isLighOn = false;
 
                 } else {
@@ -70,6 +74,9 @@ public class FlashLightActivity extends Activity {
 
                     camera.setParameters(p);
                     camera.startPreview();
+
+                    button.setImageResource(R.drawable.panda_on);
+
                     isLighOn = true;
 
                 }
